@@ -1,3 +1,4 @@
+#coding=utf-8
 class Solution(object):
     def longestPalindrome(self, s):
         lst=list(s)
@@ -27,9 +28,28 @@ class Solution(object):
                 end+=1
             else:
                 return s[start+1:end]
+#动态规划方法
+#去除重复计算
+#时间效率和上面的差不多
+class Solution2(object):
+    def longestPalindrome(self, s):
+        temp=[[False for _ in xrange(len(s))] for _ in xrange(len(s))]
+        if len(s)>0:
+            maxs=s[0]
+        else:
+            maxs=""
+        for j in xrange(1,len(s)):
+            for i in xrange(0,j):
+                if s[i]==s[j] and (j-i<=2 or temp[i+1][j-1]==True):
+                    temp[i][j]=True
+                    if j-i+1>len(maxs):
+                        maxs=s[i:j+1]
+        return maxs        
+        
 
-ob=Solution()
-print ob.longestPalindrome("babad")
+ob=Solution2()
+print ob.longestPalindrome("cababad")
+
 
 
 
