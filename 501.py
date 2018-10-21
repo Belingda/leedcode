@@ -1,10 +1,11 @@
+#coding=utf-8
 # Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
-
+#法一：遍历BST树 利用字典 将数字作为key，次数作为value,然后找出字典中的次数最多的key值 需要额外空间O(n)
 class Solution(object):
     numdict={}
     def findMode(self, root):
@@ -36,7 +37,7 @@ class Solution(object):
         self.initNumLst(root.right)
 
     
-
+#法二：中序遍历二叉树，得到一个升序序列，遍历时记录前一个值，看当前值的出现频率是否大于前一个值，是则记录
 class Solution2(object):
     max=0
     count=0
@@ -69,8 +70,3 @@ class Solution2(object):
         self.func(root.right)
 
 
-
-
-newcode=TreeNode(2147483647)
-ob=Solution2()
-print ob.findMode(newcode)
