@@ -1,4 +1,8 @@
 # -*- coding:utf-8 -*-
+import test1
+"""
+二叉树中和为某一值的路径
+"""
 class TreeNode:
 	def __init__(self, x):
 		self.val = x
@@ -9,7 +13,6 @@ class TreeNode:
 class Solution:
 	# 返回二维列表，内部每个列表表示找到的路径
 	def FindPath(self, root, expectNumber):
-		# write code here
 		return self.RealFindPath(root, 0, expectNumber, [], [])
 
 	def RealFindPath(self, root, sum, expectNumber, path, allpath):
@@ -24,6 +27,7 @@ class Solution:
 			self.RealFindPath(root.left, sum, expectNumber, path, allpath)
 		if root.right:
 			self.RealFindPath(root.right, sum, expectNumber, path, allpath)
+		# 回退到上个结点前弹出当前元素
 		if len(path) > 0:
 			num = path.pop()  # 弹出末尾元素
 			sum = sum - num
@@ -32,7 +36,6 @@ class Solution:
 class Solution2:
 	# 返回二维列表，内部每个列表表示找到的路径
 	def FindPath(self, root, expectNumber):
-		# write code here
 		return self.RealFindPath(root, expectNumber, [], [])
 
 	def RealFindPath(self, root, expectNumber, path, allpath):

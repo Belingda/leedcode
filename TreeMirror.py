@@ -22,3 +22,4 @@ class Solution:
 		root.right = tempNode
 		self.Mirror(root.left)
 		self.Mirror(root.right)
+import test1

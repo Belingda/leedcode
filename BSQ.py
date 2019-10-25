@@ -34,15 +34,6 @@ class Solution:
 				return False
 		return self.VerifyBST(lefts) and self.VerifyBST(rights)
 
-class Solution2:
-	def VerifySquenceOfBST(self, sequence):
-		# write code here
-		if sequence is None or len(sequence) == 0:
-			return False
-		return self.VerifyBST(sequence)
-
-	def VerifyBST(self,verifys):
-		pass
 '''
 网上看到的不用递归的C++写法 
 大致思路是根据后序遍历(左右根），将当前结点作为根结点 遍历结点前面序列的值，如果当前元素值小于结点值
