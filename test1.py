@@ -78,3 +78,6 @@ ob=Solution3()
 s = "acb"
 t = "ahbgdc"
 print(ob.isSubsequence(s,t))
+
+
+
