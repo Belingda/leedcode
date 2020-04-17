@@ -52,6 +52,7 @@ class Solution3:
 
 # https://leetcode-cn.com/problems/house-robber-iii
 # 打家劫舍3
+# max(dp[i-1],dp[i-2]+nums[i])
 # 输入: [3,2,3,null,3,null,1]
 #
 #      3
@@ -59,9 +60,34 @@ class Solution3:
 #    2   3
 #     \   \
 #      3   1
-#
+# 3 3 1 | 2 3
 # 输出: 7
-# 解释:小偷一晚能够盗取的最高金额 = 3 + 3 + 1 = 7.
-#
+# 解释:小偷一晚能够盗取的最高金额 = 3 + 3 + 1 = 7
 # 来源：力扣（LeetCode）
 # 链接：https://leetcode-cn.com/problems/house-robber-iii
+
+# 3 2 3 3 1
+# [2, 1, 3, null, 4]
+# 2
+#1 3
+# 4
+
+# 2 1 3 4
+# Definition for a binary tree node.
+# dp1 = max(dp1,dp0+nums[i])
+class TreeNode:
+	def __init__(self, x):
+		self.val = x
+		self.left = None
+		self.right = None
+
+class Solution4:
+	def rob(self, root: TreeNode) -> int:
+		if not root:
+			return 0
+		queue = [root]
+		dp0 = 0
+		dp1 = root.val
+		while(queue):
+			node = queue.pop()
+			dp1 = max(dp1,dp0)

@@ -1,18 +1,5 @@
 # -*- coding: gbk -*-
-
-"""
-{
-	结点：结点父亲
-}
-"""
-# List[List[int]]
-
-# [
-# [],
-#[]
-# ]
-
-# [1]
+#朋友圈个数
 class Solution:
 	def findCircleNum(self, M):
 		ob = UnionFind()
